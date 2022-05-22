@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Blade : MonoBehaviour
 {
-    public GameObject bladetrail;
     bool isCutting = false;
     Rigidbody2D rb;
     Camera cam;
-    GameObject currentBladetrail; //that's why two references
+    public GameObject bladetrail;
+    GameObject currentbladetrail;
+    CircleCollider2D circlecollider;
 
     private void Start()
     {
         cam = Camera.main;  //for converting mousePosition to world points
         rb= GetComponent<Rigidbody2D>();
+        circlecollider = GetComponent<CircleCollider2D>();
     }
     // Update is called once per frame
     void Update()
@@ -44,15 +46,19 @@ public class Blade : MonoBehaviour
     {
 
         isCutting = true;
-        currentBladetrail=Instantiate(bladetrail, transform);   //this one is a newform
+        //this one is a newform
+        currentbladetrail = Instantiate(bladetrail, transform); //parents transform because bladetrail is under the blade
+        circlecollider.enabled = true;
     }
 
     void StopCutting()
     {
 
         isCutting = false;
-        currentBladetrail.transform.SetParent(null); //this removes the prefab the moment the stopcutting fucntion is called
+        //this removes the prefab the moment the stopcutting fucntion is called
         //THIS DEREFERENCING THE OBJECT IS FUCKING AMAZING!!!
-
+        currentbladetrail.transform.SetParent(null);  //it removes from the parent
+        Destroy(currentbladetrail, 2); //destroys after 2 seconds
+        circlecollider.enabled = false;
     }
 }
