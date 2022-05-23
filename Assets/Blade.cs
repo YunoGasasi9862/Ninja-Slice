@@ -5,6 +5,10 @@ using UnityEngine;
 public class Blade : MonoBehaviour
 {
     bool isCutting = false;
+
+    Vector2 previousPosition;
+
+    public float minCuttingVelocity = .001f;
     Rigidbody2D rb;
     Camera cam;
     public GameObject bladetrail;
@@ -37,9 +41,19 @@ public class Blade : MonoBehaviour
 
     void UpdateCut()
     {
+        Vector2 newPosition= cam.ScreenToWorldPoint(Input.mousePosition); ;
+        rb.position = newPosition;
 
-        rb.position = cam.ScreenToWorldPoint(Input.mousePosition);
-        //converts to smaller points
+        float velocity = ((newPosition - previousPosition).magnitude / Time.deltaTime); 
+        //findin the velocity based on previousPosition and new EVERYTIME
+        if(velocity > minCuttingVelocity)
+        {
+
+
+        }
+            //magnitude is needed because we are dealing with vectors
+            
+            //converts to smaller points
         //so if the mouse is click it starts cutting, and move the position in the mouse direction
     }
     void StartCutting()
