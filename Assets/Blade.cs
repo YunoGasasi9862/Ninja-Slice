@@ -44,13 +44,22 @@ public class Blade : MonoBehaviour
         Vector2 newPosition= cam.ScreenToWorldPoint(Input.mousePosition); ;
         rb.position = newPosition;
 
-        float velocity = ((newPosition - previousPosition).magnitude / Time.deltaTime); 
+        float velocity = (newPosition - previousPosition).magnitude / (Time.deltaTime); 
         //findin the velocity based on previousPosition and new EVERYTIME
         if(velocity > minCuttingVelocity)
         {
 
+            circlecollider.enabled = true;
+        }
+        else
+        {
+            circlecollider.enabled = false;
 
         }
+
+        previousPosition = newPosition; //it sets the previous position to the newposition, and calculate the new position again
+
+
             //magnitude is needed because we are dealing with vectors
             
             //converts to smaller points
@@ -62,7 +71,7 @@ public class Blade : MonoBehaviour
         isCutting = true;
         //this one is a newform
         currentbladetrail = Instantiate(bladetrail, transform); //parents transform because bladetrail is under the blade
-        circlecollider.enabled = true;
+        circlecollider.enabled = false; //we dont want to see it enabled on the first frame :)
     }
 
     void StopCutting()

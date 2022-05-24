@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20713dbcafab01d4986dd56add9e19ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minCuttingVelocity: 0.001
   bladetrail: {fileID: 1817602221274458531, guid: 9e091dd2c16a7444b9088dfb71788f3a, type: 3}
 --- !u!4 &158550229
 Transform:
@@ -252,7 +253,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158550227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
