@@ -71,7 +71,11 @@ public class Blade : MonoBehaviour
         isCutting = true;
         //this one is a newform
         currentbladetrail = Instantiate(bladetrail, transform); //parents transform because bladetrail is under the blade
+        previousPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+
         circlecollider.enabled = false; //we dont want to see it enabled on the first frame :)
+
+        //if we start cutting in a new area we want to update our previous position
     }
 
     void StopCutting()
