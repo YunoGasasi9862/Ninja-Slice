@@ -10,11 +10,12 @@ public class Fruit : MonoBehaviour
     {
         if(collision.tag=="Blade")
         {
-            Vector3 direction = (collision.transform.position - transform.position).normalized;  //gives the magnitutde of the new position pointing from object to mous
+          
 
-            Quaternion rotation= Quaternion.LookRotation(direction);  //look in the direction of the face
+            Vector3 direction = (collision.transform.position - transform.position).normalized;
+            Quaternion rotation = Quaternion.LookRotation(direction);
             Instantiate(slicedwatermelon, transform.position, rotation);
-            Destroy(gameObject);
+            Destroy(gameObject); //the one the mousei s colliding with
           
 
         }
