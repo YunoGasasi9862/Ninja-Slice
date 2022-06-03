@@ -11,7 +11,7 @@ public class FruitSpawner : MonoBehaviour
     public float maxDelay = 1f;
     void Start()
     {
-        
+        StartCoroutine(SpawnFruits());
     }
 
     IEnumerator SpawnFruits()
@@ -24,8 +24,9 @@ public class FruitSpawner : MonoBehaviour
 
 
             int spawnIndex = Random.Range(0, spawnPoints.Length); //between 0 to the max sizeo f the array
+            Transform spawnpoint = spawnPoints[spawnIndex];
+            Instantiate(fruitprefab, spawnpoint.position, spawnpoint.rotation); //spawning at that point
 
-            Instantiate(fruitprefab);
 
 
 
