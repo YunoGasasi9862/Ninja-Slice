@@ -509,7 +509,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitprefab: {fileID: 7596435243631865100, guid: f880dc92c89e47f43a34ec1a4a0028c9, type: 3}
-  spawnPoints: []
+  spawnPoints:
+  - {fileID: 1220288485}
+  - {fileID: 657310425}
+  - {fileID: 60082076}
   minDelay: 0.1
   maxDelay: 1
 --- !u!4 &1540889551
