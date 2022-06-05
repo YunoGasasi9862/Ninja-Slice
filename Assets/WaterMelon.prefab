@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slicedwatermelon: {fileID: 6075650052691802513, guid: 14309003cde2d1545949635269f94694, type: 3}
+  force: 15
 --- !u!1001 &7596435242587424130
 PrefabInstance:
   m_ObjectHideFlags: 0

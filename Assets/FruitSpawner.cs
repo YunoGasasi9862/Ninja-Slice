@@ -32,8 +32,8 @@ public class FruitSpawner : MonoBehaviour
 
             int spawnIndex = Random.Range(0, spawnPoints.Length);
             Transform spawnpoint = spawnPoints[spawnIndex];
-            Instantiate(fruitprefab, spawnpoint.position, spawnpoint.rotation);
-
+            GameObject spawnedfruit= Instantiate(fruitprefab, spawnpoint.position, spawnpoint.rotation);
+            Destroy(spawnedfruit, 5);
 
         }
 
